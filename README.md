@@ -1,184 +1,115 @@
-RFLXT_Token Smart Contract
-
-
-This repository contains the RFLXTToken Solidity smart contract, which integrates features like staking, NFT minting, governance, and token management. Designed for use on the Ethereum blockchain, the contract employs OpenZeppelin libraries for secure access control and pausable functionality.
-
+RFLXT Smart Contracts Suite
 Table of Contents
 
+1. Introduction
+2. Features
+3. Smart Contracts Overview
+4. Deployment Instructions
+5. Testing and Interaction
+6. Upgradeability
+7. Roadmap
+8. License
+
+Introduction
+
+RFLXT.com leverages blockchain technology to enhance the gaming and creator economy, providing tools for creators, gamers, and developers to interact seamlessly. This repository includes smart contracts that power features like staking, subscriptions, NFT marketplaces, governance, and rewards.
+
 Features
 
-Technologies Used
+The RFLXT Smart Contracts Suite includes:
+- ERC-20 Token Management: Handle the core RFLXT token with staking and burning functionality.
+- NFT Marketplace: Enable NFT listing, trading, and royalty distribution.
+- Subscription Management: Automate subscriptions for access to premium features and content.
+- Creator Node Rewards: Distribute rewards to creators and node operators dynamically.
+- Referral System: Encourage user acquisition through referrals.
+- Governance: Facilitate community voting on platform upgrades and proposals.
+- Token-Gated Access: Unlock exclusive in-game features and content using tokens or NFTs.
+- Dynamic Rewards: Adjust staking rewards based on platform metrics.
 
-Deployment
+Smart Contracts Overview
+Core Contracts
 
-Usage
+1. RFLXTToken.sol  
+   - Manages the ERC-20 token, including minting, staking, and burning.  
+   - Supports voting and treasury management.
 
-Roles and Permissions
+2. BaseUpgradeable.sol  
+   - Provides the foundation for upgradeable contracts with role-based access control.
 
-Events
+Feature-Specific Contracts
+
+1. NFTMarketplace.sol  
+   - Facilitates NFT listing, trading, and royalty payments.
+
+2. SubscriptionManager.sol  
+   - Handles subscriptions for platform features and token-gated access.
+
+3. CreatorNodeRewards.sol  
+   - Distributes rewards to creators and node operators based on performance.
+
+4. ReferralSystem.sol (Planned)  
+   - Rewards referrals for user acquisition and engagement.
+
+5. Governance.sol (Planned)  
+   - Enables community voting on platform changes and upgrades.
+
+6. TokenGatedAccess.sol  
+   - Unlocks exclusive features based on wallet contents.
+
+7. DynamicRewards.sol  
+   - Adjusts staking rewards dynamically to incentivize participation.
+
+Deployment Instructions
+
+### Prerequisites
+1. Install Node.js and MetaMask.
+2. Use Remix or a local development environment like Hardhat for compilation and deployment.
+3. Fund your wallet with testnet ETH for deployment on public testnets.
+
+### Steps for Deployment
+1. Compile Contracts:
+   - Use Remix or a local environment to compile all `.sol` files.
+2. Deploy BaseUpgradeable:
+   - Deploy `BaseUpgradeable.sol` first and initialize with an admin address.
+3. Deploy Feature Contracts:
+   - Deploy other contracts (`NFTMarketplace`, `SubscriptionManager`, etc.), passing the `BaseUpgradeable` address where necessary.
+4. Verify Deployments:
+   - Use the contract addresses to interact with deployed contracts via Remix or a frontend.
+
+Testing and Interaction
+
+### Testing in Remix
+1. Interact with contracts via the Deployed Contracts section.
+2. Test:
+   - Token transfers (RFLXTToken).
+   - NFT listings and purchases (NFTMarketplace).
+   - Reward claims (CreatorNodeRewards).
+   - Subscriptions (SubscriptionManager).
+
+### Frontend Integration
+Use libraries like Web3.js or ethers.js to interact with these contracts from your frontend.
+
+Upgradeability
+
+The contracts are built with the Transparent Proxy Pattern using OpenZeppelin's libraries. This allows you to:
+- Update logic without redeploying.
+- Preserve the state and address of deployed contracts.
+
+Steps for upgrading:
+1. Deploy the new implementation contract.
+2. Update the proxy contract to point to the new implementation.
+
+Roadmap
+
+- [x] Implement core token functionality.
+- [x] Add staking and rewards.
+- [x] Develop modular NFT marketplace.
+- [x] Integrate subscription management.
+- [ ] Launch governance system.
+- [ ] Finalize referral rewards system.
+- [ ] Test and deploy to mainnet.
 
 License
 
-Features
+This project is licensed under the MIT License.
 
-Token Basics
-
-Name: RFLXT
-
-Symbol: RFLXT
-
-Decimals: 18
-
-Initial Supply: Configurable at deployment
-
-Core Functionalities
-
-Token Transfers: Standard ERC-20-like transfer functionality.
-
-Burning: Allows holders to burn tokens, reducing total supply.
-
-Staking: Stake tokens to earn rewards.
-
-NFT Minting: Create NFTs with metadata and URIs.
-
-Governance: Token-based voting for proposals.
-
-Treasury Management: Tracks treasury allocations for rewards.
-
-Advanced Features
-
-Dynamic Reward System: Rewards adjust based on token supply.
-
-Access Control: Role-based permissions for sensitive actions.
-
-Pausable Contract: Temporarily disable token operations when needed.
-
-Technologies Used
-
-Solidity: v0.8.26
-
-OpenZeppelin Contracts: AccessControl, Pausable
-
-Ethereum Blockchain
-
-Deployment
-
-Requirements:
-
-Solidity compiler (solc) or compatible framework (e.g., Hardhat, Truffle).
-
-Node.js and npm (for dependency management).
-
-Ethereum wallet (e.g., MetaMask).
-
-Install Dependencies:
-
-bash
-
-Copy code
-
-npm install @openzeppelin/contracts
-
-Compile the Contract:
-
-bash
-
-Copy code
-
-npx hardhat compile
-
-Deploy the Contract:
-
-Update the deployment script with:
-
-javascript
-
-Copy code
-
-const initialSupply = "1000000"; // Example: 1,000,000 tokens
-
-const treasuryAddress = "0xYourTreasuryAddress";
-
-Run the script:
-
-bash
-
-Copy code
-
-npx hardhat run scripts/deploy.js --network your-network
-
-Usage
-
-Token Transfers
-
-Transfer tokens between addresses:
-
-solidity
-
-Copy code
-
-function transfer(address to, uint256 value) public returns (bool);
-
-Staking
-
-Stake tokens to earn rewards:
-
-solidity
-
-Copy code
-
-function stake(uint256 value) public;
-
-function unstake(uint256 value) public;
-
-function claimRewards() public;
-
-Minting NFTs
-
-Admins can mint NFTs:
-
-solidity
-
-Copy code
-
-function mintNFT(string memory name_, string memory uri_) public;
-
-Governance
-
-Vote on proposals using tokens:
-
-solidity
-
-Copy code
-
-function vote(uint256 proposalId, uint256 weight) public;
-
-Roles and Permissions
-
-DEFAULT_ADMIN_ROLE: Manages all roles.
-
-MINTER_ROLE: Permission to mint tokens and NFTs.
-
-TREASURY_ROLE: Manages treasury allocations.
-
-Events
-
-The following events are emitted for blockchain transparency:
-
-Transfer: Logs token transfers.
-
-Stake: Logs staking actions.
-
-Unstake: Logs unstaking actions.
-
-RewardPaid: Logs reward distributions.
-
-NFTMinted: Logs new NFT creations.
-
-Voted: Logs governance votes.
-
-Burn: Logs token burns.
-
-License
-
-This project is licensed under the MIT License. 
