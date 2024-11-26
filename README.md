@@ -118,21 +118,26 @@ Verified Contracts on SKALE Testnet
 The following contracts have been deployed and verified on the SKALE Giant Half Dual Testnet. Each contract supports the RFLXT ecosystem and demonstrates advanced EVM smart contract capabilities.
 
 RFLXT_Token
+
 **Address**: [0x4b7b8C877c57D56d65C8ab4B64CB3Dc4A0898028](https://giant-half-dual-testnet.explorer.testnet.skalenodes.com/address/0x4b7b8C877c57D56d65C8ab4B64CB3Dc4A0898028?tab=txs)
 **Description**: The core ERC-20 token implementation for the RFLXT platform, supporting staking, burning, and treasury management.
 
 BaseUpgradeable
+
 **Address**: [0xD50C99E27923Ccb34949166538594310d46Ed8ec](https://giant-half-dual-testnet.explorer.testnet.skalenodes.com/address/0xD50C99E27923Ccb34949166538594310d46Ed8ec)
 **Description**: A foundational upgradeable smart contract providing role-based access control and initializable functionality.
 
 NFT Marketplace
+
 **Address**: [0xCBDc2877b4879045A535E376b91b676D53E41108](https://giant-half-dual-testnet.explorer.testnet.skalenodes.com/address/0xCBDc2877b4879045A535E376b91b676D53E41108)
 **Description**: A decentralized marketplace for listing, trading, and managing NFTs with royalty distribution.
 
 Subscription Manager
+
 **Address**: [0xA3BC28d9738ED6BF7411427b240DA9c6902f76aC](https://giant-half-dual-testnet.explorer.testnet.skalenodes.com/address/0xA3BC28d9738ED6BF7411427b240DA9c6902f76aC)
 **Description**: Manages token-based subscriptions and gated access to premium platform features.
 
 CreatorNodeRewards
+
 **Address**: [0x8d1711CAff0CEC79818d71f0e70e80F9706CC6BA](https://giant-half-dual-testnet.explorer.testnet.skalenodes.com/address/0x8d1711CAff0CEC79818d71f0e70e80F9706CC6BA)
 **Description**: Manages dynamic rewards distribution for creators and node operators.
